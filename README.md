@@ -34,4 +34,16 @@ yarn add cors
 # Tipagem CORS
 
 yarn add @types/cors -D
+
+# Instalação do Prisma
+
+yarn add prisma
+
+# Prisma Client
+
+yarn add @prisma/client
+
+# Inicializando o Prisma
+
+npx prisma init
 ```
