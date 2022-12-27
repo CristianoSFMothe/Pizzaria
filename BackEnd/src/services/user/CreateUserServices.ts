@@ -3,14 +3,14 @@ import { hash } from "bcryptjs";
 
 'bcryptjs';
 
-interface  UserRequest {
+interface  IUserRequest {
     name: string;
     email: string;
     password: string;
 }
 
 class CreateUserServices {
-    async execute({ name, email, password }: UserRequest ) {
+    async execute({ name, email, password }: IUserRequest ) {
         // Verificar se enviou email
         if (!email) {
             throw new Error('Email incorrect');
