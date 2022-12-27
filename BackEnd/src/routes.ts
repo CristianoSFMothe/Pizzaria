@@ -1,8 +1,8 @@
-import {Router } from 'express';
+import { Router } from "express";
 
-import { CreateUserController } from './controllers/user/CreateUserController'
+import { CreateUserController } from './controllers/user/CreateUserController';
 import { AuthUserController } from './controllers/user/AuthUserController';
-import {DetailsUserController} from './controllers/user/DetailsUserController';
+import { DetailsUserController } from './controllers/user/DetailsUserController';
 
 import { isAuthenticated } from './middleware/isAuthenticated';
 
@@ -19,5 +19,4 @@ router.post('/session', new AuthUserController().handle);
 
 router.get('/info', isAuthenticated, new DetailsUserController().handle);
 
-
-export { router }; 
+export { router };
