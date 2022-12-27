@@ -62,5 +62,15 @@ yarn add bcryptjs
 # Tipagem
 yarn add @types/bcryptjs -D
 
+# Token JWT
 
+yarn add jsonwebtoken
+
+# Tipagem
+
+yarn add @types/jsonwebtoken -D
+
+# DOTENV
+
+yarn add dotenv
 ```
