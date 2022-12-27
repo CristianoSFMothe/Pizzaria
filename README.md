@@ -23,4 +23,15 @@ yarn add @types/express -D
 yarn tsc --init
 
 yarn add ts-node-dev -D 
+
+# Express Errors
+yarn add express-async-errors
+
+# Habilidando o CORS
+
+yarn add cors
+
+# Tipagem CORS
+
+yarn add @types/cors -D
 ```
