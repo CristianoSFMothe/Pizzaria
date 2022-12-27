@@ -54,4 +54,13 @@ yarn prisma migrate dev
 # Prisma Studio
 
 yarn prisma studio
+
+# Instalado o Bcrypt
+
+yarn add bcryptjs
+
+# Tipagem
+yarn add @types/bcryptjs -D
+
+
 ```
