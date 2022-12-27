@@ -50,4 +50,8 @@ npx prisma init
 # Criando a Migrate
 
 yarn prisma migrate dev
+
+# Prisma Studio
+
+yarn prisma studio
 ```
