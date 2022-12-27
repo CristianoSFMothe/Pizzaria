@@ -46,4 +46,8 @@ yarn add @prisma/client
 # Inicializando o Prisma
 
 npx prisma init
+
+# Criando a Migrate
+
+yarn prisma migrate dev
 ```
