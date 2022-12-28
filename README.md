@@ -73,4 +73,11 @@ yarn add @types/jsonwebtoken -D
 # DOTENV
 
 yarn add dotenv
+
+# Instalando o Multer
+yarn add multer
+
+# Tipagem 
+$ yarn add @types/multer -D
+
 ```

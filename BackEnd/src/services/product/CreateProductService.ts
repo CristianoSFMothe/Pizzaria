@@ -1,6 +1,6 @@
-import prismaClient from '../../prisma';
+import prismaClient from "../../prisma";
 
-interface IProductRequest {
+interface ProductRequest{
   name: string;
   price: string;
   description: string;
@@ -9,16 +9,11 @@ interface IProductRequest {
 }
 
 class CreateProductService{
-  async execute({
-    name,
-    price,
-    description,
-    banner,
-    category_id
-  }: IProductRequest){
+  async execute({name, price, description, banner, category_id}: ProductRequest){
 
-    return { ok: true };
+    return { ok: true}
+
   }
 }
 
-export { CreateProductService };
+export { CreateProductService }
