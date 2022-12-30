@@ -31,7 +31,11 @@ class CreateProductService {
       }
     });
 
-    return product;
+    return {
+      data: {
+        product
+      }
+    };
 
   }
 }

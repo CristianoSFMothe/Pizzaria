@@ -10,7 +10,11 @@ class ListCategoryService{
       }
     })
 
-    return category;
+    return {
+      data:{
+        category
+      }
+    };
 
   }
 }

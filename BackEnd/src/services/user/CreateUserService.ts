@@ -42,7 +42,11 @@ class CreateUserService{
     })
 
 
-    return user;
+    return {
+      data: {
+        user
+      }
+    };
   }
 }
 

@@ -12,7 +12,11 @@ class ListByCategoryService {
       }
     });
 
-    return findByCategory;
+    return {
+      product: {
+        findByCategory
+      }
+    };
 
   }
 }

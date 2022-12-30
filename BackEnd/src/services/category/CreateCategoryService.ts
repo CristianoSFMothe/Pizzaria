@@ -33,8 +33,11 @@ class CreateCategoryService{
     })
 
 
-    return category;
-
+    return {
+      data:{
+        category
+      }
+    };
   }
 }
 
