@@ -22,7 +22,7 @@ yarn add @types/express -D
 
 yarn tsc --init
 
-yarn add ts-node-dev -D 
+yarn add ts-node-dev -D
 
 # Express Errors
 yarn add express-async-errors
@@ -77,7 +77,16 @@ yarn add dotenv
 # Instalando o Multer
 yarn add multer
 
-# Tipagem 
+# Tipagem
 $ yarn add @types/multer -D
+
+
+# Swagger UI
+
+yarn add swagger-ui-express
+
+# Tipagem
+
+yarn add @types/swagger-ui-express -D
 
 ```

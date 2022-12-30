@@ -1,0 +1,248 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Fast food ordering system API",
+    "description": "This API is under development",
+    "contact": {
+      "name": "support",
+      "email": "cristianodevsystem@gmail.com",
+      "url": "https://github.com/CristianoSFMothe/Pizzaria"
+    },
+    "license": {
+      "name": "MIT License",
+      "url": "http://escolhaumalicenca.com.br/licencas/mit/"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "tags": [
+      "description",
+      "usuários"
+    ],
+    "/users": {
+      "post": {
+        "description": "User creationo",
+        "requestBody": {
+          "description": "Data required to register a usero",
+          "content": {
+            "appplication/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully registered user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseUser"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Email/user already exists"
+          }
+        }
+      }
+    },
+    "/session": {
+      "post": {
+        "description": "Log in with a user",
+        "requestBody": {
+          "description": "Necessary data log with an existing user",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestSession"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User logged in successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestSessionToken"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "User/password incorrect"
+          }
+        }
+      }
+    },
+    "/me": {
+      "get": {
+        "description": "Registered users",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestGetUser"
+                }
+              }
+            },
+            "description": "Return of logged user data with authentication"
+          },
+          "401": {
+            "description": "Unauthorized user"
+          }
+        }
+      }
+    },
+    "/category/product": {
+      "get": {
+        "description": "Retornando um produto por categoria",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "cateroy_id",
+            "in": "query",
+            "description": "category id",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return of product data by category",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestGetUser"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "Category not found!"
+          }
+        }
+      }
+    }
+
+  },
+  "components": {
+    "schemas": {
+      "RequestUser": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nome de usuário"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email de usuário",
+            "example": "email@example.com"
+          },
+          "password": {
+            "type": "string",
+            "description": "Senha do usuário"
+          }
+        }
+      },
+      "ResponseUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID do usuário",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome de usuário"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email de usuário",
+            "example": "email@example.com"
+          },
+          "password": {
+            "type": "string",
+            "description": "Senha do usuário"
+          }
+        }
+      },
+      "RequestSession": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Email do usuário cadastrado"
+          },
+          "password": {
+            "type": "string",
+            "description": "Senha do usuário cadastrado"
+          }
+        }
+      },
+      "RequestSessionToken": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID do usuário"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email do usuário cadastrado"
+          },
+          "password": {
+            "type": "string",
+            "description": "Senha do usuário cadastrado"
+          },
+          "token": {
+            "type": "string",
+            "description": "Token de usuário"
+          }
+        }
+      },
+      "RequestGetUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID do usuário"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome de usuário"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email de usuário"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "description": "Authentication using JWT",
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
