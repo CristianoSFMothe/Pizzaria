@@ -12,9 +12,10 @@ import { CreateProductController } from './controllers/product/CreateProductCont
 import { ListByCategoryProduct } from './controllers/product/ListByCategoryProduct';
 // -- ORDER --
 import { CreateOrderController } from './controllers/order/CreateOrderController';
+import { RemoverOrderController } from './controllers/order/RemoverOrderController';
 // -- MIDDLEWARE --
-import { isAuthenticated } from './middlewares/isAuthenticated'
 
+import { isAuthenticated } from './middlewares/isAuthenticated'
 import uploadConfig from './config/multer'
 
 const router = Router();
@@ -41,6 +42,7 @@ router.get('/category/product', isAuthenticated, new ListByCategoryProduct().han
 
 // -- ROTAS ORDER --
 router.post('/order', isAuthenticated, new CreateOrderController().handle);
+router.delete('/order', isAuthenticated, new RemoverOrderController().handle);
 
 
 export { router };
