@@ -14,6 +14,7 @@ import { ListByCategoryProduct } from './controllers/product/ListByCategoryProdu
 import { CreateOrderController } from './controllers/order/CreateOrderController';
 import { RemoverOrderController } from './controllers/order/RemoverOrderController';
 import { ListOrderController } from './controllers/order/ListOrderController';
+import { AddItemController } from './controllers/order/AddItemController';
 // -- MIDDLEWARE --
 
 import { isAuthenticated } from './middlewares/isAuthenticated'
@@ -45,6 +46,8 @@ router.get('/category/product', isAuthenticated, new ListByCategoryProduct().han
 router.post('/order', isAuthenticated, new CreateOrderController().handle);
 router.get('/order', isAuthenticated, new ListOrderController().handle);
 router.delete('/order', isAuthenticated, new RemoverOrderController().handle);
+// -- ITEM --
+router.post('/order/add', isAuthenticated, new AddItemController().handle);
 
 
 export { router };
