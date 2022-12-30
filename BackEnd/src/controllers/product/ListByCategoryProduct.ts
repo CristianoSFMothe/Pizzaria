@@ -10,13 +10,13 @@ class ListByCategoryProduct {
 
     const products = await listByCategory.execute({category_id});
 
-    const category = await prismaClient.category.findFirst({
+    const categoryIdNotFound = await prismaClient.category.findFirst({
       where: {
         id: category_id
       },
     });
 
-    if (!category) {
+    if (!categoryIdNotFound) {
       res.statusCode = 204
       res.statusMessage = 'Category not found!'
       return res.end();
