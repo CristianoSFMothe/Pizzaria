@@ -3,7 +3,11 @@ class ListOrderService {
   async execute() {
     const order = await prismaClient.order.findMany();
 
-    return order;
+    return {
+      data: {
+        order,
+      }
+    };
   }
 }
 
