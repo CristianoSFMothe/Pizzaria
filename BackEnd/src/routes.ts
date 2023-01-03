@@ -10,17 +10,18 @@ import { ListCategoryController } from './controllers/category/ListCategoryContr
 // -- PRODUCT --
 import { CreateProductController } from './controllers/product/CreateProductController'
 import { ListByCategoryProduct } from './controllers/product/ListByCategoryProduct';
-import {ListAllProductController} from './controllers/product/ListAllProductController';
+import { ListAllProductController } from './controllers/product/ListAllProductController';
 // -- ORDER --
 import { CreateOrderController } from './controllers/order/CreateOrderController';
 import { RemoverOrderController } from './controllers/order/RemoverOrderController';
 import { ListOrderController } from './controllers/order/ListOrderController';
 // -- ITEM --
 import { AddItemController } from './controllers/order/AddItemController';
-import {ListAllItemsController} from './controllers/order/ListAllItemsController';
-import {RemoveItemController} from './controllers/order/RemoveItemController';
-import {SendOrderController} from './controllers/order/SendOrderController';
-import {DetailOrderController} from './controllers/order/DetailOrderController';
+import { ListAllItemsController } from './controllers/order/ListAllItemsController';
+import { RemoveItemController } from './controllers/order/RemoveItemController';
+import { SendOrderController } from './controllers/order/SendOrderController';
+import { DetailOrderController } from './controllers/order/DetailOrderController';
+import { FinishOrderController } from './controllers/order/FinishOrderController';
 // -- MIDDLEWARE --
 
 import { isAuthenticated } from './middlewares/isAuthenticated'
@@ -54,10 +55,15 @@ router.get('/order', isAuthenticated, new ListOrderController().handle);
 router.delete('/order', isAuthenticated, new RemoverOrderController().handle);
 // -- ITEM --
 router.post('/order/add', isAuthenticated, new AddItemController().handle);
+
 router.get('/order/list', isAuthenticated, new ListAllItemsController().handle);
-router.delete('/order/remove', isAuthenticated, new RemoveItemController().handle);
-router.put('/order/send', isAuthenticated, new SendOrderController().handle);
 router.get('/order/detail', isAuthenticated, new DetailOrderController().handle);
+
+router.put('/order/send', isAuthenticated, new SendOrderController().handle);
+
+router.delete('/order/remove', isAuthenticated, new RemoveItemController().handle);
+
+router.put('/order/finish', isAuthenticated, new FinishOrderController().handle);
 
 
 export { router };
